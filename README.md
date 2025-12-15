@@ -1,6 +1,6 @@
 # 👨‍💻 Avantar Nikhare | Personal Portfolio
 
-![Portfolio Preview](img/logo.jpeg)
+
 
 Welcome to my official portfolio website source code. This website showcases my journey as a **Software Engineer**, highlighting my skills, projects, and certifications.
 
@@ -33,4 +33,5 @@ Visit the live website here: **[Link to your Vercel App]** *(Link baad me update
 ├── avantar_script.js   # JavaScript Logic
 └── img/                # Images & Resume
     ├── Resume/         # PDF Resume
+
     └── ...             # Profile & Project images
