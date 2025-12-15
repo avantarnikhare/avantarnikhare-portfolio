@@ -5,7 +5,7 @@
 Welcome to my official portfolio website source code. This website showcases my journey as a **Software Engineer**, highlighting my skills, projects, and certifications.
 
 ## 🚀 Live Demo
-Visit the live website here: **[Link to your Vercel App]** *(Link baad me update kar dena)*
+Visit the live website here: **[(https://avantarnikhare-portfolio.vercel.app/)]** 
 
 ---
 
@@ -35,3 +35,4 @@ Visit the live website here: **[Link to your Vercel App]** *(Link baad me update
     ├── Resume/         # PDF Resume
 
     └── ...             # Profile & Project images
+
