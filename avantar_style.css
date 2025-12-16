@@ -79,7 +79,7 @@ body.light-mode .name-text { background: linear-gradient(90deg, #333, var(--main
 .social-icon { width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border: 2px solid var(--main-color); border-radius: 50%; color: var(--main-color); font-size: 1.8rem; text-decoration: none; transition: 0.3s; }
 .social-icon:hover { background: var(--main-color); color: var(--bg-color); box-shadow: 0 0 15px var(--main-color); transform: translateY(-5px); }
 
-/* --- NEW IMPROVED PROCESS CARDS & ACHIEVEMENTS UI --- */
+/* --- PROCESS CARDS & ACHIEVEMENTS UI --- */
 .process-card {
     background: var(--card-bg);
     border: 1px solid rgba(128, 128, 128, 0.1);
@@ -125,6 +125,45 @@ body.light-mode .name-text { background: linear-gradient(90deg, #333, var(--main
 .cert-card h5 { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; color: var(--text-color); }
 .footer-bg { background: var(--bg-color); }
 
+/* --- RESUME / QUALIFICATION SECTION (WITH HOVER GLOW) --- */
+.resume-box { border-left: 2px solid rgba(0, 238, 255, 0.2); padding-left: 30px; }
+.resume-item { 
+    position: relative; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* DOT (The little circle) */
+.resume-item::before { 
+    content: ''; position: absolute; left: -36px; top: 25px; 
+    width: 12px; height: 12px; background: var(--main-color); 
+    border-radius: 50%; box-shadow: 0 0 10px var(--main-color);
+    transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT - HIGHLIGHT */
+.resume-item:hover {
+    background: rgba(255, 255, 255, 0.03); /* Subtle light background */
+    border-color: var(--main-color); /* Cyan Border */
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.15); /* Glow */
+    transform: translateX(10px); /* Move Right */
+}
+
+/* DOT GLOWS ON HOVER */
+.resume-item:hover::before {
+    background: #fff;
+    box-shadow: 0 0 20px var(--main-color);
+    transform: scale(1.3);
+}
+
+.resume-item .date { color: var(--main-color); font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; display: inline-block; }
+.resume-item h5 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; color: var(--text-color); }
+.resume-item .company { font-size: 0.9rem; color: #888; margin-bottom: 8px; font-style: italic; }
+.resume-item .desc { font-size: 0.85rem; color: var(--text-color); opacity: 0.8; line-height: 1.5; }
+
 /* MODALS & LAPTOP */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: none; backdrop-filter: blur(8px); }
 .custom-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card-bg); color: var(--text-color); padding: 0; border-radius: 20px; width: 95%; max-width: 800px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--main-color); z-index: 2001; display: none; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
@@ -157,8 +196,36 @@ body.light-mode .name-text { background: linear-gradient(90deg, #333, var(--main
 @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes scanMove { 0% { top: -10%; } 100% { top: 110%; } }
 
+/* --- MOBILE VIEW FIXES --- */
 @media (max-width: 991px) {
-    .home-section-padding { padding-top: 100px; padding-bottom: 50px; text-align: center; }
-    .hero-image-box { width: 300px; height: 300px; margin: 0 auto 30px auto; transform: none; margin-top: 0; }
-    .name-text { font-size: 2rem; white-space: normal; }
+    /* Navbar Padding Fix */
+    .navbar-collapse {
+        background: var(--bg-color);
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(128,128,128,0.2);
+        margin-top: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    /* Hero Section Fix */
+    .home-section-padding { padding-top: 140px; padding-bottom: 60px; }
+    .hero-image-box { 
+        width: 280px; height: 280px; 
+        margin: 30px auto 0 auto !important; /* Forces image to be centered */
+    }
+    
+    /* Text Fixes */
+    .name-text { font-size: 2.2rem; white-space: normal; line-height: 1.2; }
+    .greeting-text { font-size: 1.5rem; }
+    
+    /* Process Cards Mobile Gap */
+    .process-card { margin-bottom: 20px; }
+    
+    /* Modal Size Fix on Mobile */
+    .custom-modal { width: 90% !important; max-height: 80vh; }
+    .modal-content-wrapper { padding: 25px; }
+    
+    /* Hide Laptop Animation on Mobile (Too heavy) & show simple text */
+    .laptop-container { transform: scale(0.9); margin-bottom: 20px; }
 }
